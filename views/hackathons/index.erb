@@ -1,21 +1,26 @@
 <h2>Hackathons</h2>
 
-<div class="hackathons">
+<div class="hackathons container jumbotron">
   <% @hackathons.each do | hackathon | %>
-  <div class="row">
-    <ul>
-      <li>
-        <h2>
-          <a href="/hackathons/<%= hackathon.id %>">
-            Hackathon <%= hackathon.title %>
-          </a>
-          <!-- <form action="/hackathons/<%= hackathon.id %>/delete" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete?">
-          </form> -->
-        </h2>
-      </li>
-    </ul>
+  <div class="col-md-4">
+    <%= hackathon.image %>
+  </div>
+  <div class="row col-md-8" id="<%=hackathon.id%>">
+    <h3>
+      <a href="/hackathons/<%= hackathon.id %>">
+        <%= hackathon.title %>
+      </a>
+    </h3>
+    <p>
+      <%= hackathon.description %>
+    </p>
+    <p>
+      <form action="/hackathons/<%= hackathon.id %>/upvote" method="post">
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        </button>
+      </form>
+    </p>
   </div>
   <% end %>
 </div>

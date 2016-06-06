@@ -1,4 +1,6 @@
 class HackathonApp < Sinatra::Base
+
+  ## HOME PAGE ROUTE ##
   get '/' do
     erb :home
   end
@@ -36,6 +38,27 @@ class HackathonApp < Sinatra::Base
     redirect to('/hackathons')
   end
 
+  ##  EDITING A HACKATHON ##
+  get '/hackathons/:id/edit' do
+    @hackathon = Hackathon.find(params[:id])
+    erb(:'hackathons/edit')
+  end
+
+  post '/hackathons/:id' do
+    @hackathon = Hackathon.find(params[:id])
+    @hackathon.update_attributes(params[:hackathon])
+    redirect to('/hackathons')
+  end
+
+  ## ADDING AN UPVOTE BUTTON ##
+  get '/hackathons/:id/upvote' do
+    p "+1"
+  end
+
+  post '/hackathons/:id' do
+    #function to have a counter add up when button is clicked
+    p "Counter"
+  end
 
 ########################
 ## ICE BOX USER LOGIN ##
