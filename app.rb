@@ -18,7 +18,7 @@ class HackathonApp < Sinatra::Base
   post '/hackathons' do
     @hackathons = Hackathon.new(params[:hackathon])
     if @hackathons.save
-      redirect('/hackathons/#{@hackathons.id}')
+      redirect('/hackathons')
     else
       erb(:'hackathons/new')
     end
@@ -27,6 +27,13 @@ class HackathonApp < Sinatra::Base
   get '/hackathons/:id' do
     @hackathon = Hackathon.find(params[:id])
     erb(:'hackathons/show')
+  end
+
+  ## DELETING A HACKATHON ##
+  post '/hackathons/:id/delete' do
+    @hackathon = Hackathon.find(params[:id])
+    @hackathon.destroy
+    redirect to('/hackathons')
   end
 
 

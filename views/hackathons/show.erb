@@ -3,3 +3,7 @@
 <h3><%= @hackathon.description %></h3>
 <h3><%= @hackathon.date %></h3>
 <h3><%= @hackathon.image %></h3>
+<form action="/hackathons/<%= @hackathon.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete?">
+</form>
