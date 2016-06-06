@@ -1,0 +1,20 @@
+<h2>Hackathons</h2>
+
+<div class="hackathons">
+  <% @hackathons.each do | hackathon | %>
+  <div class="row">
+    <p>
+      Listings:
+    </p>
+    <ul>
+      <li>
+        <h2>
+          <a href="/hackathons/<%= hackathon.id %>">
+            Testing
+          </a>
+        </h2>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>

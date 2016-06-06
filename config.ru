@@ -3,6 +3,6 @@ require 'bundler'
 Bundler.require
 
 require './app'
-#require './models/hackathon'
+require './models/hackathon'
 
-run Hackathon
+run HackathonApp
