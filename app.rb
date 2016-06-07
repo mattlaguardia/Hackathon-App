@@ -5,6 +5,10 @@ class HackathonApp < Sinatra::Base
     erb :home
   end
 
+  get '/index' do
+    erb :home
+  end
+
 ## CONTROLLER ACTIONS ##
   get '/hackathons' do
     @hackathons = Hackathon.all.order(points: :desc)
@@ -51,12 +55,13 @@ class HackathonApp < Sinatra::Base
   end
 
   ## ADDING AN UPVOTE BUTTON ##
-  get '/hackathons/:id/vote/' do
+  get '/hackathons/:id/vote' do
     @vote = Hackathon.find(params[:id])
     erb(:'hackathons/vote')
   end
   ## not sure why my put method wasnt working ##
   post '/hackathons/:id/vote' do
+    binding.pry
     up = Hackathon.find(params[:id])
     up.points += 1
     up.save
@@ -66,7 +71,7 @@ class HackathonApp < Sinatra::Base
   end
 
   ## ADDING AN UPVOTE BUTTON ##
-  get '/hackathons/:id/downvote/' do
+  get '/hackathons/:id/downvote' do
     @vote = Hackathon.find(params[:id])
     erb(:'hackathons/vote')
   end

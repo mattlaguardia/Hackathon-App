@@ -6,8 +6,6 @@ gem "sinatra"
 gem "sinatra-activerecord"
 gem "rake"
 gem "activerecord"
-gem "shotgun"
-gem "tux"
 # gem "bcrypt-ruby"
 # Some helper constants for path-centric logic
 # APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

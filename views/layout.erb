@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="jumbotron col-md-12 container">
-      <div class="container" id="header">
-        <h1>Welcome to Open Hacks</h1>
-      </div>
-      <div class="container" id="subheader">
-        <p> A place where you are able to vote for you favorite hackathons!</p>
-      </div>
-    </div>
-    <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/index">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/hackathons">Hackathons <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="/hackathons/new">Add Hackathon</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </nav>
+    <div class="container" id="editform">
       <%= yield %>
     </div>
   </body>
