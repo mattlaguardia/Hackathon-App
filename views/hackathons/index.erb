@@ -4,20 +4,26 @@
 
 <div class="hackathons container">
   <% @hackathons.each do | hackathon | %>
-  <div class="row container-fluid" id="<%=hackathon.id%>">
-    <div class="col-md-1">
+  <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
+    <div class="col-md-1" id="arrows">
       <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
         <input type="hidden" name="_method" value="put">
-        <input type="submit" value="⇡" class="upArrow">
+        <button type="submit" class="btn" id="arrowUp">
+          <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+        </button>
       </form>
-      <%= hackathon.points %>
+      <p id="points">
+        <%= hackathon.points %>
+      </p>
       <form action="/hackathons/<%= hackathon.id%>/downvote" method="post">
         <input type="hidden" name="_method" value="put">
-        <input type="submit" value="⇣" class="downArrow">
+        <button type="submit" class="btn" id="arrowDown">
+          <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+        </button>
       </form>
     </div>
-    <div class="col-md-2 image">
-      <a href="/hackathons/<%= hackathon.id %>">
+    <div class="col-md-4 image">
+      <a href="/hackathons/<%= hackathon.id %>" class="thumbnail">
         <img src="<%= hackathon.image %>" alt="IMAGE" class="image"/>
       </a>
     </div>

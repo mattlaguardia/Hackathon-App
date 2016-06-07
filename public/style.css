@@ -1,14 +1,43 @@
+@media (max-width: 400px) {
+  .image {
+    max-width: 100px !important;
+    max-height: 100px !important;
+  }
+}
 .image {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 200px;
+  max-height: 200px;
+  align: center !important;
 }
 .title {
-  padding-left: 50px !important;
-  padding-bottom: 50px !important;
+  padding-left: 25px !important;
+  padding-bottom: 25px !important;
 }
 .row {
   padding-bottom: 50px !important;
 }
 #title {
   margin-top: 0px !important;
+}
+#points {
+  font: 25px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+#arrows {
+  text-align: center;
+  font-size: 25;
+}
+#arrowUp {
+  background-color: #eee;
+  font-size: 25px;
+}
+#arrowDown {
+  background-color: #eee;
+  font-size: 25px;
+}
+#header {
+  font-size: 75px;
 }
