@@ -5,9 +5,9 @@ class HackathonApp < Sinatra::Base
     erb :home
   end
 
-  ## RESTFULL ARTIST CONTROLLER ACTIONS ##
+## CONTROLLER ACTIONS ##
   get '/hackathons' do
-    @hackathons = Hackathon.all
+    @hackathons = Hackathon.all.order(points: :desc)
     erb(:'hackathons/index')
   end
   #need to make a get to post new hackathon - form
@@ -51,14 +51,35 @@ class HackathonApp < Sinatra::Base
   end
 
   ## ADDING AN UPVOTE BUTTON ##
-  get '/hackathons/:id/upvote' do
-    p "+1"
+  get '/hackathons/:id/vote/' do
+    @vote = Hackathon.find(params[:id])
+    erb(:'hackathons/vote')
+  end
+  ## not sure why my put method wasnt working ##
+  post '/hackathons/:id/vote' do
+    up = Hackathon.find(params[:id])
+    up.points += 1
+    up.save
+    # @hackathon = Hackathon.find(params[:id])
+    # @hackathon.update_attributes(:points => @vote.points + params[:type].to_i)
+    redirect to('/hackathons')
   end
 
-  post '/hackathons/:id' do
-    #function to have a counter add up when button is clicked
-    p "Counter"
+  ## ADDING AN UPVOTE BUTTON ##
+  get '/hackathons/:id/downvote/' do
+    @vote = Hackathon.find(params[:id])
+    erb(:'hackathons/vote')
   end
+  ## not sure why my put method wasnt working ##
+  post '/hackathons/:id/downvote' do
+    up = Hackathon.find(params[:id])
+    up.points -= 1
+    up.save
+    # @hackathon = Hackathon.find(params[:id])
+    # @hackathon.update_attributes(:points => @vote.points + params[:type].to_i)
+    redirect to('/hackathons')
+  end
+
 
 ########################
 ## ICE BOX USER LOGIN ##

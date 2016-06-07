@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Open Hacks</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body>
     <div class="jumbotron col-md-12 container">
-      <h2>Welcome to Open Hacks</h2>
-      <p> A place where you are able to vote for you favorite hackathons!</p>
+      <div class="container">
+        <h2>Welcome to Open Hacks</h2>
+      </div>
+      <div class="container">
+        <p> A place where you are able to vote for you favorite hackathons!</p>
+      </div>
+    </div>
+    <div class="container">
       <%= yield %>
     </div>
   </body>

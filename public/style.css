@@ -1,0 +1,14 @@
+.image {
+  max-width: 150px;
+  max-height: 150px;
+}
+.title {
+  padding-left: 50px !important;
+  padding-bottom: 50px !important;
+}
+.row {
+  padding-bottom: 50px !important;
+}
+#title {
+  margin-top: 0px !important;
+}
