@@ -1,5 +1,7 @@
 class HackathonApp < Sinatra::Base
 
+  set :public_folder, '/public'
+
   ## HOME PAGE ROUTE ##
   get '/' do
     erb :home
@@ -61,7 +63,6 @@ class HackathonApp < Sinatra::Base
   end
   ## not sure why my put method wasnt working ##
   post '/hackathons/:id/vote' do
-    binding.pry
     up = Hackathon.find(params[:id])
     up.points += 1
     up.save
