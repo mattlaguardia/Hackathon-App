@@ -106,4 +106,9 @@ class HackathonApp < Sinatra::Base
       redirect to ('/')#way to store fact that they signed in session is a hash
       #show an error message and have them try again
   end
+
+  get '/allusers' do
+    @allusers = User.all
+    erb :'/auth/allusers'
+  end
 end
