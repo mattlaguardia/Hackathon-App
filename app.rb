@@ -1,6 +1,5 @@
 class HackathonApp < Sinatra::Base
-
-
+  set :sessions, true
   set :public_folder, '/public'
 
   ## HOME PAGE ROUTE ##
