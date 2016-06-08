@@ -3,9 +3,26 @@ class HackathonApp < Sinatra::Base
   set :public_folder, '/public'
 
   ## HOME PAGE ROUTE ##
+  register do
+    def auth (type)
+      condition do
+        redirect "/login" unless send("is_#{type}?")
+      end
+    end
+  end
+
+  helpers do
+    def is_user?
+      @user != nil
+    end
+  end
+
   get '/' do
+    p session[:user_id]
+    p "value = #{session[:user_id].inspect}"
     erb :'/home'
   end
+
 
   get '/index' do
     erb :'/home'
@@ -90,8 +107,27 @@ class HackathonApp < Sinatra::Base
   # ## ICE BOX USER LOGIN ##
   # ########################
   get '/login' do
+    # user = User.find(session[:id])
     erb :'auth/login'
   end
+
+  post '/login' do
+    user = User.find_by(name: params[:name]).try(:authenticate, params[:password])
+
+    if user
+      session[:user_id] = user.id
+      redirect to ('/')
+    else
+      redirect to ('/login')
+    end
+  end
+  ## LOG OUT SETTING USER_ID TO NIL ##
+  get '/logout' do
+    session[:user_id] = nil
+    redirect to('/')
+  end
+
+  ## SIGN UP ##
 
   get '/signup' do
     erb :'auth/signup'
@@ -106,7 +142,9 @@ class HackathonApp < Sinatra::Base
       redirect to ('/')#way to store fact that they signed in session is a hash
       #show an error message and have them try again
   end
-
+  ####################
+  ## PERSONAL VIEW  ##
+  ####################
   get '/allusers' do
     @allusers = User.all
     erb :'/auth/allusers'
