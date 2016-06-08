@@ -3,29 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Open Hacks</title>
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- SCRIPTS -->
     <script src="/app.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/index">Brand</a>
+    <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/index">{Open Hacks}</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="/hackathons">{Hackathons} <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">{Forum}</a></li>
+              <li><a href="/hackathons/new">{Add Hackathon}</a></li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="/hackathons">Hackathons <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="/hackathons/new">Add Hackathon</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+      </nav>
     </nav>
-  </nav>
+    </div>
     <div class="container" id="editform">
       <%= yield %>
     </div>

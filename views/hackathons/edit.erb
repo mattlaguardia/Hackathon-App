@@ -1,20 +1,35 @@
-<h2>Edit Hackathon</h2>
+<div class="jumbotron">
+  <h2>Edit Hackathon</h2>
+</div>
 
-<form action="/hackathons/<%= "#{@hackathon.id}"%>" method="post">
-  <input type="hidden" name="_method" value="update">
-    <label for="hackathon[title]">Title:</label>
-    <input name="hackathon[title]" value="<%= @hackathon.title %>">
-
-    <label for="hackathon[location]">Location:</label>
-    <input name="hackathon[location]" value="<%= @hackathon.location %>">
-
-    <label for="hackaton[description]">Description:</label>
-    <input name="hackathon[description]" value="<%= @hackathon.description %>">
-
-    <label for="hackathon[date]">Date of Event:</label>
-    <input name="hackathon[date]" value="<%= @hackathon.date %>">
-
-    <label for="hackathon[image]">Logo:</label>
-    <input name="hackathon[image]" value="<%= @hackathon.image %>">
-  <input type="submit" value="Edit" class="btn">
-</form>
+<div class="jumbotron">
+  <form action="/hackathons/<%= "#{@hackathon.id}"%>" method="post">
+    <input type="hidden" name="_method" value="update">
+      <div class="container">
+        <label for="hackathon[title]" class="newform">{ Title }</label><br>
+        <input class="form" name="hackathon[title]" value="<%= @hackathon.title %>">
+      </div>
+      <div class="container">
+        <label for="hackathon[location]" class="newform">{ Location }</label><br>
+        <input class="form" name="hackathon[location]" value="<%= @hackathon.location %>">
+      </div>
+      <div class="container">
+        <label for="hackaton[description]" class="newform">{ Description }</label><br>
+        <textarea name="hackathon[description]" class="form-control" rows="3">
+          <%= @hackathon.description %>
+        </textarea>
+      </div>
+      <div class="container">
+        <label for="hackathon[date]" class="newform">{ Date of Event }</label><br>
+        <input class="form" name="hackathon[date]" value="<%= @hackathon.date %>">
+      </div>
+      <div class="container">
+        <label for="hackathon[image]" class="newform">{ Image }</label><br>
+        <input class="form" name="hackathon[image]" value="<%= @hackathon.image %>">
+      </div>
+      <br>
+      <div class="container">
+        <button type="submit" class="btn btn-primary">Done Editing</button>
+      </div>
+  </form>
+</div>
