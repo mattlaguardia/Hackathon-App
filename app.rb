@@ -69,10 +69,16 @@ class HackathonApp < Sinatra::Base
     erb(:'hackathons/vote')
   end
   post '/hackathons/:id/vote' do
+    p "Here are the params! #{params}"
     up = Hackathon.find(params[:id])
     up.points += 1
     up.save
-    redirect to('/hackathons')
+    
+    if request.xhr?
+      return {points: up.points}.to_json
+    else
+      redirect to('/hackathons')
+    end
   end
 
   ## ADDING AN DOWNVOTE BUTTON ##
@@ -84,7 +90,12 @@ class HackathonApp < Sinatra::Base
     up = Hackathon.find(params[:id])
     up.points -= 1
     up.save
-    redirect to('/hackathons')
+
+    if request.xhr?
+      return {points: up.points}.to_json
+    else
+      redirect to('/hackathons')
+    end
   end
 
   # ########################

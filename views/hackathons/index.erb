@@ -24,19 +24,18 @@
     <% @hackathons.each do | hackathon | %>
     <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
       <div class="col-md-1" id="arrows">
+        <!--PARENT TO FORM -->
         <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
-          <input type="hidden" class="vote_btn" name="_method" value="put">
-          <button type="submit" class="vote_btn btn" id="arrowUp">
-            <span class="glyphicon glyphicon-menu-up" id="<%=hackathon.id%>" aria-hidden="true"></span>
+          <button type="submit" class="vote_btn_up btn" id="arrowUp">
+            /\
           </button>
         </form>
-        <p id="points">
+        <p class="points" id="points">
           <%= hackathon.points %>
         </p>
         <form action="/hackathons/<%= hackathon.id%>/downvote" method="post">
-          <input type="hidden" name="_method" value="put">
-          <button type="submit" class="vote_btn btn" id="arrowDown">
-            <span class="glyphicon glyphicon-menu-down" id="<%=hackathon.id%>" aria-hidden="true"></span>
+          <button type="submit" class="vote_btn_down btn" id="arrowDown">
+            \/
           </button>
         </form>
       </div>
@@ -61,8 +60,8 @@
       </div>
     </div>
     <% end %>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       findingJson(<%= @hackthons.to_json %>);
-    </script>
+    </script> -->
   </div>
 </div>
