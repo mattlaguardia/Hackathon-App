@@ -1,25 +1,20 @@
 class HackathonApp < Sinatra::Base
+
   set :sessions, true
   set :public_folder, '/public'
 
   ## HOME PAGE ROUTE ##
-  register do
-    def auth (type)
-      condition do
-        redirect "/login" unless send("is_#{type}?")
+  helpers do
+    def current_user
+      if session[:user_id]
+        return User.find(session[:user_id])
+      else
+        return nil
       end
     end
   end
 
-  helpers do
-    def is_user?
-      @user != nil
-    end
-  end
-
   get '/' do
-    p session[:user_id]
-    p "value = #{session[:user_id].inspect}"
     erb :'/home'
   end
 
@@ -33,7 +28,7 @@ class HackathonApp < Sinatra::Base
     @hackathons = Hackathon.all.order(points: :desc)
     erb(:'hackathons/index')
   end
-  #need to make a get to post new hackathon - form
+
   get '/hackathons/new' do
     @hackathons = Hackathon.new
     erb(:'hackathons/new')
@@ -78,28 +73,22 @@ class HackathonApp < Sinatra::Base
     @vote = Hackathon.find(params[:id])
     erb(:'hackathons/vote')
   end
-  ## not sure why my put method wasnt working ##
   post '/hackathons/:id/vote' do
     up = Hackathon.find(params[:id])
     up.points += 1
     up.save
-    # @hackathon = Hackathon.find(params[:id])
-    # @hackathon.update_attributes(:points => @vote.points + params[:type].to_i)
     redirect to('/hackathons')
   end
 
-  ## ADDING AN UPVOTE BUTTON ##
+  ## ADDING AN DOWNVOTE BUTTON ##
   get '/hackathons/:id/downvote' do
     @vote = Hackathon.find(params[:id])
     erb(:'hackathons/vote')
   end
-  ## not sure why my put method wasnt working ##
   post '/hackathons/:id/downvote' do
     up = Hackathon.find(params[:id])
     up.points -= 1
     up.save
-    # @hackathon = Hackathon.find(params[:id])
-    # @hackathon.update_attributes(:points => @vote.points + params[:type].to_i)
     redirect to('/hackathons')
   end
 
@@ -113,40 +102,36 @@ class HackathonApp < Sinatra::Base
 
   post '/login' do
     user = User.find_by(name: params[:name]).try(:authenticate, params[:password])
-
     if user
       session[:user_id] = user.id
-      redirect to ('/')
+      current_user == true
+      p "#{user.id}"
+      redirect('/')
     else
-      redirect to ('/login')
+      redirect('/login')
     end
   end
+
   ## LOG OUT SETTING USER_ID TO NIL ##
   get '/logout' do
+    current_user
     session[:user_id] = nil
-    redirect to('/')
+    redirect('/')
   end
 
   ## SIGN UP ##
-
   get '/signup' do
     erb :'auth/signup'
   end
 
   post '/signup' do
     user = User.new(params[:user])
-      #from docs user.save
-      user.save
-      #sign them in and redirect
+    if user.save
+      current_user == true
       session[:user_id] = user.id
-      redirect to ('/')#way to store fact that they signed in session is a hash
-      #show an error message and have them try again
-  end
-  ####################
-  ## PERSONAL VIEW  ##
-  ####################
-  get '/allusers' do
-    @allusers = User.all
-    erb :'/auth/allusers'
+      redirect to('/')
+    else
+      redirect to ("/signup?name=#{params[:user][:name]}")
+    end
   end
 end

@@ -40,6 +40,12 @@ p {
   font-size: 15px;
   margin-bottom: 0px;
 }
+.hackImage {
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  min-height: 200px;
+}
 #title {
   margin-top: 0px !important;
 }
@@ -63,7 +69,8 @@ p {
   font-size: 75px;
 }
 #background {
-  background-image: url("/images/Background.jpg");
+  background-image: "/images/Background.jpg";
+  min-width: 1000px;
   width: 100%;
   background-size: 100%;
 }

@@ -19,9 +19,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="/hackathons">{Hackathons} <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">{Forum}</a></li>
-              <li><a href="/hackathons/new">{Add Hackathon}</a></li>
+              <% if current_user === true %>
+                <li><a href="/logout">{Logout}</a></li>
+              <% else %>
+                <li><a href="/login">{Login}</a></li>
+                <li><a href="/signup">{Signup}</a></li>
+              <% end %>
+                <li><a href="/hackathons">{Hackathons} <span class="sr-only">(current)</span></a></li>
+                <li><a href="/hackathons/new">{Add Hackathon}</a></li>
             </ul>
           </div>
         </div>
