@@ -3,9 +3,10 @@ require 'bundler'
 require 'pry'
 Bundler.require
 
-require './app'
-require './models/hackathon'
 require './models/user'
+require './models/hackathon'
+require './helpers/session_helpers'
+require './app'
 
 ## EXTRA STUFFS ##
 # require 'nokogiri'

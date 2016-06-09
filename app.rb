@@ -1,4 +1,5 @@
 class HackathonApp < Sinatra::Base
+  include SessionHelpers
 
   enable :sessions, :logging
   set :public_folder, '/public'
@@ -6,9 +7,6 @@ class HackathonApp < Sinatra::Base
 
   ## HOME PAGE ROUTE ##
   before '/*' do
-    def current_user
-      @current_user ||= session[:user_id] && User.find(session[:user_id])
-    end
     current_user
   end
 
