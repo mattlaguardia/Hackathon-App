@@ -7,8 +7,9 @@ require './app'
 require './models/hackathon'
 require './models/user'
 
-## WEB SCRAPPER STUFFS ##
+## EXTRA STUFFS ##
 # require 'nokogiri'
 # require 'open-uri'
+# require 'pony'
 
 run HackathonApp

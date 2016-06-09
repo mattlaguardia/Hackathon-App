@@ -7,18 +7,21 @@
 p {
   font-size: 18px !important;
 }
+body {
+  background-color: #505050 !important;
+}
+.container {
+  color: #e6e6e6;
+}
+.jumbotron {
+  background-color: rgba(56, 56, 56, 0.77) !important;
+}
 .newform {
   font-size: 18px;
-}
-.background {
-  background-image: 'public/images/Background.jpg';
 }
 .col-md-1 {
   padding-left: 0px !important;
   padding-right: 0px !important;
-}
-.jumbotron p {
-  margin-bottom: 0px !important;
 }
 .image {
   max-width: 200px;
@@ -46,6 +49,21 @@ p {
   max-height: 200px;
   min-height: 200px;
 }
+.lnavbar {
+  color: rgba(139, 255, 199, 0.77) !important;
+}
+#l2 {
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 350px;
+}
+#bg {
+  background: #000 url(images/bg-new.png) no-repeat top center !important;
+  height: 700px;
+}
+#logo {
+  text-align: center;
+}
 #title {
   margin-top: 0px !important;
 }
@@ -58,21 +76,23 @@ p {
   font-size: 25px;
 }
 #arrowUp {
-  background-color: #eee;
+  background-color: #383838;
   font-size: 25px;
 }
 #arrowDown {
-  background-color: #eee;
+  background-color: #383838;
   font-size: 25px;
 }
 #header {
   font-size: 75px;
+  color: white;
 }
-#background {
-  background-image: "/images/Background.jpg";
-  min-width: 1000px;
-  width: 100%;
-  background-size: 100%;
+#subheader {
+  color: white;
+}
+#homepage {
+  margin-left: 100px;
+  margin-top: 75px;
 }
 #editButton {
   margin-bottom: 10px;
@@ -86,4 +106,23 @@ p {
 }
 #formDescription {
   height: 200px;
+}
+#navbar {
+  background-color: rgba(56, 56, 56, 0.3);
+  border: 0 !important;
+}
+#formTitle {
+  color: black;
+}
+#formLocation {
+  color: black;
+}
+#formDes {
+  color: black;
+}
+#formDate {
+  color: black;
+}
+#formImage {
+  color: black;
 }

@@ -1,18 +1,18 @@
-<div class="jumbotron container">
-  <div class="container" id="header">
+<div class="jumbotron container-fluid">
+  <div class="container" id="headerindex">
     <h1>Vote for your favorite hackathon</h1>
   </div>
-  <div class="container" id="subheader">
+  <div class="container" id="subheaderindex">
     <p>Some information for the user about what this page is but it should be pretty staight forward that they are able to cast a vote!</p>
     <p>Today was also primaries and I want to see what another paragraph tag would look like here...</p>
   </div>
-</div>
 
-<div class="container">
+
+<div class="container-fluid">
   <h2>Hackathons</h2>
 </div>
 
-<div class="hackathons container">
+<div class="hackathons container-fluid">
   <% @hackathons.each do | hackathon | %>
   <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
     <div class="col-md-1" id="arrows">
@@ -53,4 +53,5 @@
     </div>
   </div>
   <% end %>
+</div>
 </div>

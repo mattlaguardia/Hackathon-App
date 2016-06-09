@@ -6,27 +6,28 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="css/1140.css" rel="stylesheet" type="text/css">
     <!-- SCRIPTS -->
     <script src="/app.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-default">
+    <div class="container">
+      <nav class="lnavbar navbar navbar-default" id="navbar">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/index">{Open Hacks}</a>
+            <a class="lnavbar navbar-brand" href="/index">{Open Hacks}</a>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse lnavbar" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <% if current_user === true %>
-                <li><a href="/logout">{Logout}</a></li>
+                <li><a href="/logout" class="lnavbar">{Logout}</a></li>
               <% else %>
-                <li><a href="/login">{Login}</a></li>
-                <li><a href="/signup">{Signup}</a></li>
+                <li><a href="/login" class="lnavbar">{Login}</a></li>
+                <li><a href="/signup" class="lnavbar">{Signup}</a></li>
               <% end %>
-                <li><a href="/hackathons">{Hackathons} <span class="sr-only">(current)</span></a></li>
-                <li><a href="/hackathons/new">{Add Hackathon}</a></li>
+                <li><a href="/hackathons" class="lnavbar">{Hackathons} <span class="sr-only">(current)</span></a></li>
+                <li><a href="/hackathons/new" class="lnavbar">{Add Hackathon}</a></li>
             </ul>
           </div>
         </div>
