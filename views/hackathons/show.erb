@@ -7,6 +7,7 @@
   </div>
   <div>
     <div class="col-md-6 btn-group btn-group-lg">
+      <% if @current_user %>
       <a href="/hackathons/<%= @hackathon.id %>/edit">
         <button class="btn btn-success" id="editButton">Edit Hackathon</button>
       </a>
@@ -14,6 +15,7 @@
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete Hackathon" class="btn btn-danger" id="editButton">
       </form>
+      <% end %>
     </div>
     <div class="votes col-md-6" id="profileVotes">
       <h3>Number of votes: <%= @hackathon.points %></h3>

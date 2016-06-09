@@ -14,7 +14,6 @@ class HackathonApp < Sinatra::Base
     erb :'/home'
   end
 
-
   get '/index' do
     erb :'/home'
   end
@@ -92,7 +91,6 @@ class HackathonApp < Sinatra::Base
   # ## ICE BOX USER LOGIN ##
   # ########################
   get '/login' do
-    # user = User.find(session[:id])
     erb :'auth/login'
   end
 
@@ -121,7 +119,6 @@ class HackathonApp < Sinatra::Base
   post '/signup' do
     user = User.new(params[:user])
     if user.save
-      current_user == true
       session[:user_id] = user.id
       redirect to('/')
     else

@@ -1,3 +1,4 @@
+<script src="/app.js"></script>
 <div class="jumbotron container-fluid">
   <div class="container" id="headerindex">
     <h1>Vote for your favorite hackathon</h1>
@@ -12,8 +13,11 @@
       <h2>Hackathons</h2>
     </div>
     <div class="container-fluid col-md-offset-10">
-      <h2><a href="/hackathons/new" class="lnavbar"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h2>
+      <% if @current_user %>
+        <h2><a href="/hackathons/new" class="lnavbar"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h2>
+      <% end %>
     </div>
+
   </div>
 
   <div class="hackathons container-fluid">
@@ -21,8 +25,8 @@
     <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
       <div class="col-md-1" id="arrows">
         <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
-          <input type="hidden" name="_method" value="put">
-          <button type="submit" class="btn" id="arrowUp">
+          <input type="hidden" class="vote_btn" name="_method" value="put">
+          <button type="submit" class="vote_btn btn" id="arrowUp">
             <span class="glyphicon glyphicon-menu-up" id="<%=hackathon.id%>" aria-hidden="true"></span>
           </button>
         </form>
@@ -31,7 +35,7 @@
         </p>
         <form action="/hackathons/<%= hackathon.id%>/downvote" method="post">
           <input type="hidden" name="_method" value="put">
-          <button type="submit" class="btn" id="arrowDown">
+          <button type="submit" class="vote_btn btn" id="arrowDown">
             <span class="glyphicon glyphicon-menu-down" id="<%=hackathon.id%>" aria-hidden="true"></span>
           </button>
         </form>
