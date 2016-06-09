@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Open Hacks</title>
+    <link rel="icon" href="/images/new-logo.png" title="no title" charset="utf-8">
     <!-- STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -19,15 +20,16 @@
             <a class="lnavbar navbar-brand" href="/index">{Open Hacks}</a>
           </div>
           <div class="collapse navbar-collapse lnavbar" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <% if current_user === true %>
+            <ul class="nav navbar-nav navbar-right">
+              <% if @current_user %>
                 <li><a href="/logout" class="lnavbar">{Logout}</a></li>
               <% else %>
-                <li><a href="/login" class="lnavbar">{Login}</a></li>
+                <li><a href="/login" class="lnavbar ">{Login}</a></li>
                 <li><a href="/signup" class="lnavbar">{Signup}</a></li>
               <% end %>
-                <li><a href="/hackathons" class="lnavbar">{Hackathons} <span class="sr-only">(current)</span></a></li>
-                <li><a href="/hackathons/new" class="lnavbar">{Add Hackathon}</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><a href="/hackathons" class="lnavbar">{Hackathons}</a></li>
             </ul>
           </div>
         </div>
@@ -37,5 +39,8 @@
     <div class="container" id="editform">
       <%= yield %>
     </div>
+    <script type="text/javascript">
+      findingJson(<%= @hackthons.to_json %>)
+    </script>
   </body>
 </html>

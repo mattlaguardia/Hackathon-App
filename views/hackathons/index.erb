@@ -7,51 +7,58 @@
     <p>Today was also primaries and I want to see what another paragraph tag would look like here...</p>
   </div>
 
-
-<div class="container-fluid">
-  <h2>Hackathons</h2>
-</div>
-
-<div class="hackathons container-fluid">
-  <% @hackathons.each do | hackathon | %>
-  <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
-    <div class="col-md-1" id="arrows">
-      <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
-        <input type="hidden" name="_method" value="put">
-        <button type="submit" class="btn" id="arrowUp">
-          <span class="glyphicon glyphicon-menu-up" id="<%=hackathon.id%>" aria-hidden="true"></span>
-        </button>
-      </form>
-      <p id="points">
-        <%= hackathon.points %>
-      </p>
-      <form action="/hackathons/<%= hackathon.id%>/downvote" method="post">
-        <input type="hidden" name="_method" value="put">
-        <button type="submit" class="btn" id="arrowDown">
-          <span class="glyphicon glyphicon-menu-down" id="<%=hackathon.id%>" aria-hidden="true"></span>
-        </button>
-      </form>
+  <div class="index-header">
+    <div class="container-fluid col-md-4 col-md-offset-1">
+      <h2>Hackathons</h2>
     </div>
-    <div class="col-md-4 image">
-      <a href="/hackathons/<%= hackathon.id %>" class="thumbnail">
-        <img src="<%= hackathon.image %>" alt="IMAGE" class="image"/>
-      </a>
-    </div>
-    <div class="title col-md-8">
-      <h3 id="title">
-        <%= hackathon.title %>
-      </h3>
-      <p>Description:</p>
-      <div class="description">
-        <%= hackathon.description %>
-      </div>
-      <br>
-      <p>Location:</p>
-      <div class="location">
-        <%= hackathon.location %>
-      </div>
+    <div class="container-fluid col-md-offset-10">
+      <h2><a href="/hackathons/new" class="lnavbar"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></h2>
     </div>
   </div>
-  <% end %>
-</div>
+
+  <div class="hackathons container-fluid">
+    <% @hackathons.each do | hackathon | %>
+    <div class="row container-fluid jumbotron" id="<%=hackathon.id%>">
+      <div class="col-md-1" id="arrows">
+        <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
+          <input type="hidden" name="_method" value="put">
+          <button type="submit" class="btn" id="arrowUp">
+            <span class="glyphicon glyphicon-menu-up" id="<%=hackathon.id%>" aria-hidden="true"></span>
+          </button>
+        </form>
+        <p id="points">
+          <%= hackathon.points %>
+        </p>
+        <form action="/hackathons/<%= hackathon.id%>/downvote" method="post">
+          <input type="hidden" name="_method" value="put">
+          <button type="submit" class="btn" id="arrowDown">
+            <span class="glyphicon glyphicon-menu-down" id="<%=hackathon.id%>" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+      <div class="col-md-4 image">
+        <a href="/hackathons/<%= hackathon.id %>" class="thumbnail">
+          <img src="<%= hackathon.image %>" alt="IMAGE" class="image"/>
+        </a>
+      </div>
+      <div class="title col-md-8">
+        <h3 id="title">
+          <%= hackathon.title %>
+        </h3>
+        <p>Description:</p>
+        <div class="description">
+          <%= hackathon.description %>
+        </div>
+        <br>
+        <p>Location:</p>
+        <div class="location">
+          <%= hackathon.location %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <script type="text/javascript">
+      findingJson(<%= @hackthons.to_json %>);
+    </script>
+  </div>
 </div>

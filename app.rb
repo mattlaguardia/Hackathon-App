@@ -1,17 +1,15 @@
 class HackathonApp < Sinatra::Base
 
-  set :sessions, true
+  enable :sessions, :logging
   set :public_folder, '/public'
+  set :session_secret, ENV["HACKATHON_APP_SECRET"]
 
   ## HOME PAGE ROUTE ##
-  helpers do
+  before '/*' do
     def current_user
-      if session[:user_id]
-        return User.find(session[:user_id])
-      else
-        return nil
-      end
+      @current_user ||= session[:user_id] && User.find(session[:user_id])
     end
+    current_user
   end
 
   get '/' do
@@ -104,8 +102,6 @@ class HackathonApp < Sinatra::Base
     user = User.find_by(name: params[:name]).try(:authenticate, params[:password])
     if user
       session[:user_id] = user.id
-      current_user == true
-      p "#{user.id}"
       redirect('/')
     else
       redirect('/login')

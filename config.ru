@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler'
-#require 'pry'
+require 'pry'
 Bundler.require
 
 require './app'
