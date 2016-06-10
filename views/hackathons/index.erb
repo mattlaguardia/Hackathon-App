@@ -26,7 +26,7 @@
       <div class="col-md-1" id="arrows">
         <!--PARENT TO FORM -->
         <form action="/hackathons/<%= hackathon.id%>/vote" method="post">
-          <button type="submit" class="vote_btn_up btn" id="arrowUp">
+          <button type="submit" class="vote-button-up btn" id="arrowUp">
             /\
           </button>
         </form>
@@ -49,12 +49,12 @@
           <%= hackathon.title %>
         </h3>
         <p>Description:</p>
-        <div class="description">
+        <div class="description col-md-offset-1">
           <%= hackathon.description %>
         </div>
         <br>
         <p>Location:</p>
-        <div class="location">
+        <div class="location col-md-offset-1">
           <%= hackathon.location %>
         </div>
       </div>

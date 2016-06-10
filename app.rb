@@ -69,11 +69,10 @@ class HackathonApp < Sinatra::Base
     erb(:'hackathons/vote')
   end
   post '/hackathons/:id/vote' do
-    p "Here are the params! #{params}"
     up = Hackathon.find(params[:id])
     up.points += 1
     up.save
-    
+
     if request.xhr?
       return {points: up.points}.to_json
     else

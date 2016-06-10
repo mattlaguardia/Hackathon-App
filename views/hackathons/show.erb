@@ -1,12 +1,36 @@
-<div class="container-fluid">
-  <div class="container col-md-5" id="hackImage">
-    <p><img src="<%= @hackathon.image %>" alt="HACKATHON LOGO" class="hackImage thumbnail" /></p>
+<div class="jumbotron" id="scene">
+  <div class="container-fluid" id="edit-below" data-depth="0.20">
+    <div class="container col-md-4" id="hackImage">
+      <p><img src="<%= @hackathon.image %>" alt="HACKATHON LOGO" class="hackImage thumbnail" /></p>
+    </div>
+    <div class="col-md-8" id="profileTitle">
+      <h2><%= @hackathon.title %></h2>
+    </div>
+    <div>
+      <div class="votes col-md-4" id="profileVotes">
+        <h3>Number of votes: <%= @hackathon.points %></h3>
+      </div>
+    </div>
   </div>
-  <div class="col-md-7" id="profileTitle">
-    <h1><%= @hackathon.title %></h1>
-  </div>
-  <div>
-    <div class="col-md-6 btn-group btn-group-lg">
+  <div class="jumbotron container-fluid" id="hackInfo">
+    <div class="location">
+      <h3>Location:</h3>
+      <p><%= @hackathon.location %></p>
+    </div>
+    <div class="info">
+      <h3>Description:</h3>
+      <p><%= @hackathon.description %></p>
+    </div>
+    <div class="date">
+      <h3>Date:</h3>
+      <p><%= @hackathon.date %></p>
+    </div>
+    <div class="updated-at col-md-offset-8">
+      <p>
+        Last update: <%= @hackathon.updated_at %>
+      </p>
+    </div>
+    <div class="edit-delete-buttons">
       <% if @current_user %>
       <a href="/hackathons/<%= @hackathon.id %>/edit">
         <button class="btn btn-success" id="editButton">Edit Hackathon</button>
@@ -17,22 +41,5 @@
       </form>
       <% end %>
     </div>
-    <div class="votes col-md-6" id="profileVotes">
-      <h3>Number of votes: <%= @hackathon.points %></h3>
-    </div>
-  </div>
-</div>
-<div class="jumbotron container-fluid" id="hackInfo">
-  <div class="location">
-    <h3>Location:</h3>
-    <p><%= @hackathon.location %></p>
-  </div>
-  <div class="info">
-    <h3>Description:</h3>
-    <p><%= @hackathon.description %></p>
-  </div>
-  <div class="date">
-    <h3>Date:</h3>
-    <p><%= @hackathon.date %></p>
   </div>
 </div>

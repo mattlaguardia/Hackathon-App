@@ -1,35 +1,45 @@
-<div class="jumbotron">
-  <h2>Edit Hackathon</h2>
-</div>
+<body>
 
 <div class="jumbotron">
-  <form action="/hackathons/<%= "#{@hackathon.id}"%>" method="post">
-    <input type="hidden" name="_method" value="update">
-      <div class="container">
-        <label for="hackathon[title]" class="newform">{ Title }</label><br>
-        <input class="form" name="hackathon[title]" value="<%= @hackathon.title %>">
+  <h2 id="edit-header">Edit Hackathon</h2>
+  <form class="jumbotron form-horizontal" action="/hackathons/<%="#{@hackathon.id}"%>" method="post">
+    <input type="hidden" name="_method" value="update" class="form-control">
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="hackathon[title]" value="<%= @hackathon.title %>">
       </div>
-      <div class="container">
-        <label for="hackathon[location]" class="newform">{ Location }</label><br>
-        <input class="form" name="hackathon[location]" value="<%= @hackathon.location %>">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="hackathon[location]" value="<%= @hackathon.location %>">
       </div>
-      <div class="container">
-        <label for="hackaton[description]" class="newform">{ Description }</label><br>
-        <textarea name="hackathon[description]" class="form-control" rows="3">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-6">
+        <textarea name="hackathon[description]" class="form form-control" rows="3">
           <%= @hackathon.description %>
         </textarea>
       </div>
-      <div class="container">
-        <label for="hackathon[date]" class="newform">{ Date of Event }</label><br>
-        <input class="form" name="hackathon[date]" value="<%= @hackathon.date %>">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Date</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="hackathon[date]" value="<%= @hackathon.date %>">
       </div>
-      <div class="container">
-        <label for="hackathon[image]" class="newform">{ Image }</label><br>
-        <input class="form" name="hackathon[image]" value="<%= @hackathon.image %>">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Url to Image</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="hackathon[image]" value="<%= @hackathon.image %>">
       </div>
-      <br>
-      <div class="container">
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-primary">Done Editing</button>
       </div>
+    </div>
   </form>
 </div>

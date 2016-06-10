@@ -55,10 +55,18 @@ body {
 .lnavbar {
   color: rgba(139, 255, 199, 0.77) !important;
 }
+#edit-header {
+  color: #e6e6e6 !important;
+}
 #l2 {
   text-align: center;
   margin-left: 100px;
   margin-top: 350px;
+}
+#l1 {
+  text-align: center;
+  margin-left: 150px;
+  margin-top: 90px;
 }
 #bg {
   background: #000 url(images/bg-new.png) no-repeat top center !important;
@@ -81,6 +89,7 @@ body {
 #arrowUp {
   background-color: #383838;
   font-size: 25px;
+  margin-bottom: 10px;
 }
 #arrowDown {
   background-color: #383838;
@@ -131,4 +140,8 @@ body {
 }
 #editButton {
   color: #e6e6e6;
+}
+#bg-show {
+  background: #000 url(images/edit-bg.jpg) no-repeat top center !important;
+  height: 700px;
 }

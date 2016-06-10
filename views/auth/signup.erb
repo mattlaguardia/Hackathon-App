@@ -1,11 +1,34 @@
+
 <div class="jumbotron">
-  <form action="/signup" method="POST">
-    Username:
-    <input type="text" class="form" name="user[name]" value="<%= params[:name] %>">
-    Password:
-    <input type="password" class="form" name="user[password]">
-    Password Confirmation:
-    <input type="password" class="form" name="user[password_confirmation]">
-    <input type="submit">
-  </form>
+  <h2>Sign Up!</h2>
+  <p>
+    Please sign up to be able to post for crowd voting!
+  </p>
+  <div class="jumbotron">
+    <form class="form-horizontal" action="/login" method="POST">
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Username:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="user[name]" value="<%= params[:name] %>" placeholder="Hi_Ben">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" name="user[password]" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password Confirmation</label>
+        <div class="col-sm-6">
+          <input type="password" class="form-control" name="user[password_confirmation]" placeholder="Password Confirmation">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input class="form btn" type="submit">
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
