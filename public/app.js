@@ -1,11 +1,6 @@
-
-
 $(document).ready(function(){
   $(".vote_btn_up").click(function(event){
-    // WORKS !! //
     event.preventDefault();
-    // works like this //
-    // looking for button //
     $target = $(event.target);
     $target.attr("disabled", "true");
     $form = $target.parent();
@@ -24,7 +19,6 @@ $(document).ready(function(){
 
   $(".vote_btn_down").click(function(event){
     event.preventDefault();
-
     $target = $(event.target);
     $target.attr("disabled", "true");
     $form = $target.parent();
@@ -39,5 +33,3 @@ $(document).ready(function(){
   });
 
 })
-
-console.log("sanity checkz");
