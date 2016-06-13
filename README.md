@@ -23,7 +23,7 @@ Link Here >>> [here](http://daringfireball.net/projects/markdown/syntax)
 * Ajax
 * HTML
 * CSS
-* PosgeSQL
+* PostgeSQL
 * Heroku
 * GitHub
 

@@ -132,7 +132,7 @@ class HackathonApp < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/')
     else
-      redirect to ("/signup?name=#{params[:user][:name]}")
+      redirect to ("/signup")
     end
   end
 end
