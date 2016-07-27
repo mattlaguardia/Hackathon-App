@@ -12,7 +12,7 @@ Let me introduce myself.
 
 This project was initially created in a week.
 
-Link Here >>> [here](http://daringfireball.net/projects/markdown/syntax)
+Link Here >>> [here](https://open-hacks.herokuapp.com/)
 
 ## Technologies
 
